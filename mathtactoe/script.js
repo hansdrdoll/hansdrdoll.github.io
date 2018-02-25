@@ -1,5 +1,5 @@
 // math tac toe
-
+console.log("script connected")
 // each user takes turns placing a number
 
 // the first player to make a row that equals 15 wins
@@ -22,61 +22,292 @@
 // check all variables if they equal 15, user wins
 // else next turn
 
-var odd = [1,3,5,7,9]
+// global vars
+// make the tokens accessable
+var $num1 = $('#num1'); $num2 = $('#num2'); $num3 = $('#num3'); $num4 = $('#num4'); $num5 = $('#num5'); $num6 = $('#num6'); $num7 = $('#num7'); $num8 = $('#num8'); $num9 = $('#num9');
 
-var even = [2,4,6,8]
-
+// make the game board accessable
+var $boxA = $('#a'); $boxB = $('#b'); $boxC = $('#c'); $boxD = $('#d'); $boxE = $('#e'); $boxF = $('#f'); $boxG = $('#g'); $boxH = $('#h'); $boxI = $('#i');
 
 // win conditions
+var win1 = []; win2 = []; win3 = []; win4 = []; win5 = []; win6 = []; win7 = []; win8 = [];
 
-let win1 = []; win2 = []; win3 = []; win4 = []; win5 = []; win6 = []; win7 = []; win8 = [];
+// number use states
+// this should just be an object
+var num1Used = false; num2Used = false; num3Used = false; num4Used = false; num5Used = false; num6Used = false; num7Used = false; num8Used = false; num9Used = false;
 
-// game board
-// let $boxa = $('#a'); $boxb = $('#b'); $boxc = $('#c'); $boxd = $('#d'); $boxe = $('#e'); $boxf = $('#f'); $boxg = $('#g'); $boxh = $('#h'); $boxi = $('#i');
+// box use states
+// this should also be an object
+var boxAUsed = false; boxBUsed = false; boxCUsed = false; boxDUsed = false; boxEUsed = false; boxFUsed = false; boxGUsed = false; boxHUsed = false; boxIUsed = false;
+var boardActive = false;
 
-// options
+// odd's turn = 1, even's turn = 2
+var nextTurn = 1;
 
-win1.push(2)
-win1.push(5)
-win1.push(8)
+function checkForWin () {
 
-win7.push(2)
-win7.push(5)
-win7.push(8)
+    boardActive = false
 
-// console.log(win8)
-
-function oddTurn () {
-
-for (i = 1; i < 9; i++) {
-
-  var currentArr = eval('win'+i)
-  console.log("checking array",currentArr)
-
-  var winningNumbers = currentArr.reduce((a, b) => a + b, 0)
-  console.log(winningNumbers)
-
-  if (winningNumbers === 15) {
-    console.log("you won")
-    break;
-  } else if (i === 8 && winningNumbers !== 15) {
-    console.log("next turn")
-    // break;
-  } else {
-    // console.log("broken")
+  for (i = 1; i < 9; i++) {
+    var currentArr = eval('win'+i)
+    if (currentArr.length >= 3) {
+      console.log(currentArr)
+    // console.log("checking array",currentArr)
+    var winningNumbers = currentArr.reduce((a, b) => a + b, 0)
+  }
+    // console.log(winningNumbers)
+    if (winningNumbers === 15) {
+      console.log("you won")
+      break;
+    } else if (i === 8 && nextTurn === 2) {
+      evenTurn()
+      console.log("even's turn is next")
+    } else if (i === 8 && nextTurn === 1) {
+      oddTurn()
+      console.log("odd's turn is next")
+    }
   }
 }
 
 
-// else if (win8 === 15) {
-//     console.log("you won")
-//     break;
-//   } else if (win8 !== 15) {
-//     console.log("next turn")
-//   } else {
-//     console.log("code broken")
-//   }
+// user selects a number, then selects a box
+// place the number selected into the box and array
 
-}
+// make the numbers live
+
+var currentToken
+
+function oddTurn () {
+
+if (nextTurn === 1) {
+
+if (!num1Used) {
+  $num1.one('click', function() {
+    if (nextTurn === 1) {
+    $num1.addClass('usedToken')
+    boardActive = true
+    currentToken = 1
+    placeToken()
+    nextTurn = 2
+    num1Used = true
+  }})}
+
+if (!num3Used){
+  $num3.one('click', function() {
+    if (nextTurn === 1) {
+    $num3.addClass('usedToken')
+    boardActive = true
+    currentToken = 3
+    placeToken()
+    nextTurn = 2
+    num3Used = true
+  }})}
+
+if (!num5Used) {
+  $num5.one('click', function() {
+    if (nextTurn === 1) {
+    $num5.addClass('usedToken')
+    boardActive = true
+    currentToken = 5
+    placeToken()
+    nextTurn = 2
+    num5Used = true
+  }})}
+
+if (!num7Used) {
+  $num7.one('click', function() {
+    if (nextTurn === 1) {
+    $num7.addClass('usedToken')
+    boardActive = true
+    currentToken = 7
+    placeToken()
+    nextTurn = 2
+    num7Used = true
+  }})}
+
+if (!num9Used) {
+  $num9.one('click', function() {
+    if (nextTurn === 1) {
+    $num9.addClass('usedToken')
+    boardActive = true
+    currentToken = 9
+    placeToken()
+    nextTurn = 2
+    num9Used = true
+  }})}
+}}
+
+function evenTurn () {
+
+if (nextTurn === 2) {
+
+if (!num2Used) {
+  $num2.one('click', function() {
+    if (nextTurn === 2) {
+    $num2.addClass('usedToken')
+    boardActive = true
+    currentToken = 2
+    placeToken()
+    nextTurn = 1
+    num2Used = true
+  }})}
+
+if (!num4Used) {
+  $num4.one('click', function() {
+    if (nextTurn === 2) {
+    $num4.addClass('usedToken')
+    boardActive = true
+    currentToken = 4
+    placeToken()
+    nextTurn = 1
+    num4Used = true
+  }})}
+
+if (!num6Used) {
+  $num6.one('click', function() {
+    if (nextTurn === 2) {
+    $num6.addClass('usedToken')
+    boardActive = true
+    currentToken = 6
+    placeToken()
+    nextTurn = 1
+    num6Used = true
+  }})}
+
+if (!num8Used) {
+  $num8.one('click', function() {
+    if (nextTurn === 2) {
+    $num8.addClass('usedToken')
+    boardActive = true
+    currentToken = 8
+    placeToken()
+    nextTurn = 1
+    num8Used = true
+  }})}
+
+}}
+
+
+// game board
+
+
+function placeToken () {
+
+// turns out that feeding the token value as an arugment
+// stores the first argument value in all the event handlers
+// forever, even when a new argument is passed to the parent function
+// ugh
+
+  console.log(currentToken)
+
+if (boardActive) {
+
+  if(!boxAUsed) {
+    $boxA.one('click', function() {
+    if (boardActive) {
+    $boxA.addClass('usedBox')
+    $boxA.text(currentToken)
+    win1.push(currentToken)
+    win4.push(currentToken)
+    win7.push(currentToken)
+    boxAUsed = true
+    checkForWin()
+  }})}
+
+  if (!boxBUsed) {
+  $boxB.one('click', function() {
+    if (boardActive) {
+    $boxB.addClass('usedBox')
+    $boxB.text(currentToken)
+    win2.push(currentToken)
+    win4.push(currentToken)
+    boxBUsed = true;
+    checkForWin()
+  }})}
+
+  if (!boxCUsed) {
+  $boxC.one('click', function() {
+    if (boardActive) {
+    $boxC.addClass('usedBox')
+    $boxC.text(currentToken)
+    win3.push(currentToken)
+    win4.push(currentToken)
+    win8.push(currentToken)
+    boxCused = true;
+    checkForWin()
+  }})}
+
+  if (!boxDUsed) {
+  $boxD.one('click', function() {
+    if (boardActive) {
+    $boxD.addClass('usedBox')
+    $boxD.text(currentToken)
+    win1.push(currentToken)
+    win5.push(currentToken)
+    boxDused = true;
+    checkForWin()
+  }})}
+
+  if (!boxEUsed) {
+  $boxE.one('click', function() {
+    if (boardActive) {
+    $boxE.addClass('usedBox')
+    $boxE.text(currentToken)
+    win2.push(currentToken)
+    win5.push(currentToken)
+    win7.push(currentToken)
+    win8.push(currentToken)
+    boxEused = true;
+    checkForWin()
+  }})}
+
+  if (!boxFUsed) {
+  $boxF.one('click', function() {
+    if (boardActive) {
+    $boxF.addClass('usedBox')
+    $boxF.text(currentToken)
+    win3.push(currentToken)
+    win5.push(currentToken)
+    boxFused = true;
+    checkForWin()
+  }})}
+
+  if (!boxGUsed) {
+  $boxG.one('click', function() {
+    if (boardActive) {
+    $boxG.addClass('usedBox')
+    $boxG.text(currentToken)
+    win1.push(currentToken)
+    win6.push(currentToken)
+    win8.push(currentToken)
+    boxGused = true;
+    checkForWin()
+  }})}
+
+  if (!boxHUsed) {
+  $boxH.one('click', function() {
+    if (boardActive) {
+    $boxH.addClass('usedBox')
+    $boxH.text(currentToken)
+    win2.push(currentToken)
+    win6.push(currentToken)
+    boxHused = true;
+    checkForWin()
+  }})}
+
+  if (!boxIUsed) {
+  $boxI.one('click', function() {
+    if (boardActive) {
+    $boxI.addClass('usedBox')
+    $boxI.text(currentToken)
+    win3.push(currentToken)
+    win6.push(currentToken)
+    win7.push(currentToken)
+    boxIused = true;
+    checkForWin()
+  }})}
+
+}}
+
 
 oddTurn()

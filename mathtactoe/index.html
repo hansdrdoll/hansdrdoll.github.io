@@ -2,29 +2,52 @@
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h1></h1>
+<h1>Math Tac Toe</h1>
 <div class="main">
-<div class="oddTokens"></div>
-  <div class="board">
-    <div class="box" id="a"></div>
-    <div class="box" id="b"></div>
-    <div class="box" id="c"></div>
-    <div class="box" id="d"></div>
-    <div class="box" id="e"></div>
-    <div class="box" id="f"></div>
-    <div class="box" id="g"></div>
-    <div class="box" id="h"></div>
-    <div class="box" id="i"></div>
+    <div class="board">
+    <!-- for some reason if these divs don't have some content
+    to start, they move as soon as js inserts the value -->
+  <div class="row">
+    <div class="box" id="a">&nbsp;</div>
+    <div class="box" id="b">&nbsp;</div>
+    <div class="box" id="c">&nbsp;</div>
   </div>
-<div class="evenTokens">
-</div>
+  <div class="row">
+    <div class="box" id="d">&nbsp;</div>
+    <div class="box" id="e">&nbsp;</div>
+    <div class="box" id="f">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="box" id="g">&nbsp;</div>
+    <div class="box" id="h">&nbsp;</div>
+    <div class="box" id="i">&nbsp;</div>
+  </div>
+  </div>
 
+<div class="oddTokens">
+  <h2>Player 1</h2>
+  <div class="token" id="num1"><h2>1</h2></div>
+  <div class="token" id="num3"><h2>3</h2></div>
+  <div class="token" id="num5"><h2>5</h2></div>
+  <div class="token" id="num7"><h2>7</h2></div>
+  <div class="token" id="num9"><h2>9</h2></div>
+</div>
+<div class="evenTokens">
+  <h2>Player 2</h2>
+  <div class="token" id="num2"><h2>2</h2></div>
+  <div class="token" id="num4"><h2>4</h2></div>
+  <div class="token" id="num6"><h2>6</h2></div>
+  <div class="token" id="num8"><h2>8</h2></div>
+</div>
+</div>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<script type="javascript" src="script.js">
+<script src="script.js"></script>
 </body>
 </html>
