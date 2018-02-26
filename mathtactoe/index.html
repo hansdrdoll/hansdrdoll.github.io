@@ -2,34 +2,38 @@
 <html>
 <head>
   <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300i,400,700,700i&effect=3d-float" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<h1>Math Tac Toe</h1>
+<h1 class="font-effect-3d-float">Math Tac Toe</h1>
+<h4>First player to make a row, column, or diagonal that totals 15 wins!</h4>
 <div class="main">
     <div class="board">
     <!-- for some reason if these divs don't have some content
     to start, they move as soon as js inserts the value -->
   <div class="row">
-    <div class="box" id="a">&nbsp;</div>
-    <div class="box" id="b">&nbsp;</div>
-    <div class="box" id="c">&nbsp;</div>
+    <div class="box" id="a"></div>
+    <div class="box" id="b"></div>
+    <div class="box" id="c"></div>
   </div>
   <div class="row">
-    <div class="box" id="d">&nbsp;</div>
-    <div class="box" id="e">&nbsp;</div>
-    <div class="box" id="f">&nbsp;</div>
+    <div class="box" id="d"></div>
+    <div class="box" id="e"></div>
+    <div class="box" id="f"></div>
   </div>
   <div class="row">
-    <div class="box" id="g">&nbsp;</div>
-    <div class="box" id="h">&nbsp;</div>
-    <div class="box" id="i">&nbsp;</div>
+    <div class="box" id="g"></div>
+    <div class="box" id="h"></div>
+    <div class="box" id="i"></div>
   </div>
   </div>
 
 <div class="oddTokens">
-  <h2>Player 1</h2>
+  <h3>Player 1</h3>
+  <div id="p1message" class="message"></div>
   <div class="token" id="num1"><h2>1</h2></div>
   <div class="token" id="num3"><h2>3</h2></div>
   <div class="token" id="num5"><h2>5</h2></div>
@@ -37,13 +41,17 @@
   <div class="token" id="num9"><h2>9</h2></div>
 </div>
 <div class="evenTokens">
-  <h2>Player 2</h2>
+  <h3>Player 2</h3>
+  <div id="p2message" class="message"></div>
   <div class="token" id="num2"><h2>2</h2></div>
   <div class="token" id="num4"><h2>4</h2></div>
   <div class="token" id="num6"><h2>6</h2></div>
   <div class="token" id="num8"><h2>8</h2></div>
 </div>
+<div id="toast"><div id="img"></div><div id="desc"></div></div>
 </div>
+
+
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

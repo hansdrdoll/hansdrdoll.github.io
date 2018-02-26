@@ -1,26 +1,71 @@
 body {
+  background-color: rgb(69,92,123);
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
 
+a {
+  color: rgb(255,240,209);
+  text-decoration: none;
+  border: 1px white solid;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+a:hover {
+  background-color: rgb(172,108,130);
+}
+
+/*game title*/
+h1 {
+  font-size: 60px;
+  color:rgb(172,108,130);
+  margin: 10px 0;
+}
+
+/*numbers*/
+h2 {
+  font-size: 70px;
+  margin: 10px 0;
+}
+
+/*player name*/
+h3 {
+  font-family: 'Rubik', sans-serif;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+/*game description*/
+h4 {
+  font-family: 'Rubik', sans-serif;
+  color:rgb(255,240,209);
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  margin: 20px 0 0 0;
 }
 
 .main {
-  border:1px solid pink;
+  /*border:1px solid pink;*/
   text-align: center;
   margin: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items:center;
+  flex: 1 1 auto;
 }
 
 .board {
+  background-color:rgb(104,92,121);
   order: 2;
-  border:1px solid red;
   padding: 10px;
   margin: 0 auto;
   display: flex;
   flex-flow:row;
-  /*flex-grow: 2;*/
+  align-items: center;
+  justify-content: center;
 }
 
 .row {
@@ -32,37 +77,180 @@ body {
 }
 
 .box {
+  font-family: 'Rubik', sans-serif;
+  color: rgb(255,240,209);
+  font-weight: 700;
   height: 100px;
   width: 100px;
   border:1px grey solid;
-  margin: 10px;
-  font-size: 40px;
+  margin: 20px 10px;
+  font-size: 100px;
   text-align: center;
 }
 
+.usedBox {
+/*  font-size:100px;
+*/}
+
 .oddTokens {
-  /*flex-grow: 1;*/
+  /*border: 1px solid orange;*/
+  height: 510px;
+  width: 220px;
+  border: 2px solid rgb(69,92,123);
+  border-radius: 5px;
+  margin: 0 auto;
   order: 1;
+  flex-direction: column;
   align-self:flex-start;
+  justify-content: center;
+  padding: 10px 20px;
 }
 
 .evenTokens {
-  /*flex-grow: 1;*/
+  height: 510px;
+  width: 220px;
+  border: 2px solid rgb(69,92,123);
+  border-radius: 5px;
+  margin: 0 auto;
   order: 3;
   align-self: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.message {
+  font-size:14px;
+  height: 20px;
+}
+
+.activePlayer {
+  /*height: 220px;*/
+  background-color: rgb(80,107,143);
+  border: 2px solid rgb(80,107,143);
+  border-radius: 5px;
+  color: #fff;
+  animation: fadein 0.5s;
+}
+
+.winPlayer {
+  background-color: rgb(172,81,138);
+  color: #fff;
+  animation: fadein 0.5s;
+  border: 2px solid white;
+  border-radius: 2px;
 }
 
 .token {
-  border:1px solid blue;
+  font-size: 70px;
+  color: rgb(218,147,152);
+  /*border:1px solid blue;*/
   height: 70px;
   width: 70px;
-  margin: 10px;
-}
-
-.usedBox {
-  background-color: green;
+  margin: 10px auto;
 }
 
 .usedToken {
-  background-color: gray;
+  color:rgb(51,69,92);
 }
+
+@media only screen and (max-width: 767px) {
+
+h1 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+/*numbers*/
+h2 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+/*player name*/
+h3 {
+  font-size: 30px;
+}
+/*game description*/
+h4 {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+}
+.main {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+  flex: 1 1 auto;
+}
+
+.board {
+  order: 2;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow:row;
+  align-items: center;
+  justify-content: center;
+}
+.row {
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  border:1px grey solid;
+  margin: 10px 5px;
+  font-size: 50px;
+  flex-flow: column;
+}
+.oddTokens {
+  display:inline-block;
+  height: auto;
+  width: 90%;
+  border: 2px solid rgb(69,92,123);
+  border-radius: 5px;
+  margin: 0 auto;
+  order: 1;
+  flex-direction: row;
+  align-self: flex-start;
+  justify-content: center;
+  padding: 10px 20px;
+}
+.evenTokens {
+  display: inline-block;
+  height: auto;
+  width: 90%;
+  border: 2px solid rgb(69,92,123);
+  border-radius: 5px;
+  margin: 0 auto;
+  order: 3;
+  flex-direction: row;
+  align-self: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+}
+.message {
+  font-size:12px;
+  height: 14px;
+}
+.token {
+  display: inline-block;
+  font-size: 40px;
+  color: rgb(218,147,152);
+  height: 40px;
+  width: 40px;
+  margin: 10px auto;
+  flex-flow: row;
+}
+.usedToken {
+  color:rgb(51,69,92);
+}
+  }
+

@@ -1,10 +1,11 @@
 // math tac toe
-console.log("script connected")
+console.log("script connected!")
+
+// to do:
+// 1) add tie condition
+
 // each user takes turns placing a number
-
 // the first player to make a row that equals 15 wins
-
-//
 
 // list of available even numbers on right side
 // available odd numbers on left side
@@ -41,12 +42,35 @@ var num1Used = false; num2Used = false; num3Used = false; num4Used = false; num5
 var boxAUsed = false; boxBUsed = false; boxCUsed = false; boxDUsed = false; boxEUsed = false; boxFUsed = false; boxGUsed = false; boxHUsed = false; boxIUsed = false;
 var boardActive = false;
 
+// vars for the toast elements
+var toastDiv = document.getElementById("toast"); toastImg = document.getElementById("img"); toastText = document.getElementById("desc")
+
+// player instructions
+var p1Message = document.getElementById("p1message"); p2Message = document.getElementById("p2message")
+
+// vars for the turn change indicators
+var $oddTokens = $('.oddTokens'); $evenTokens = $('.evenTokens')
+
+var $description = $('h4'); $title = $('h1')
+var tryAgain = '<a href="#" onclick="window.location.reload(true);">Another round?'
+
 // odd's turn = 1, even's turn = 2
 var nextTurn = 1;
 
 function checkForWin () {
 
     boardActive = false
+
+// check for a tie
+if (num1Used && num2Used && num3Used && num4Used && num5Used && num6Used && num7Used && num8Used && num9Used) {
+  $evenTokens.removeClass('activePlayer')
+  $oddTokens.removeClass('activePlayer')
+  $title.text('It\'s a tie!')
+  $description.html(tryAgain)
+  p1Message.innerHTML = ''
+  p2Message.innerHTML = ''
+  // console.log("tie!")
+} else {
 
   for (i = 1; i < 9; i++) {
     var currentArr = eval('win'+i)
@@ -57,17 +81,31 @@ function checkForWin () {
   }
     // console.log(winningNumbers)
     if (winningNumbers === 15) {
-      console.log("you won")
+      if (nextTurn === 1) {
+        // console.log("Player two wins!")
+        $title.text('Player Two Wins!')
+        $description.html(tryAgain)
+        $evenTokens.removeClass('activePlayer').addClass('winPlayer')
+        p2Message.innerHTML = ''
+        nextTurn = 3
+      } else {
+        // console.log("Player one wins!")
+        $title.text('Player One Wins!')
+        $description.html(tryAgain)
+        $oddTokens.removeClass('activePlayer').addClass('winPlayer')
+        p1Message.innerHTML = ''
+        nextTurn = 3
+      }
       break;
     } else if (i === 8 && nextTurn === 2) {
       evenTurn()
-      console.log("even's turn is next")
+      // console.log("even's turn is next")
     } else if (i === 8 && nextTurn === 1) {
       oddTurn()
-      console.log("odd's turn is next")
+      // console.log("odd's turn is next")
     }
   }
-}
+}}
 
 
 // user selects a number, then selects a box
@@ -80,6 +118,15 @@ var currentToken
 function oddTurn () {
 
 if (nextTurn === 1) {
+
+  $evenTokens.removeClass('activePlayer')
+  $oddTokens.addClass('activePlayer')
+
+  // toastImg.innerHTML = '<img src="frog.png">'
+  // launchToast('Player One, make your move!')
+
+  p2Message.innerHTML = ''
+  p1Message.innerHTML = 'Select a number,<br>then click to place it.'
 
 if (!num1Used) {
   $num1.one('click', function() {
@@ -138,8 +185,17 @@ if (!num9Used) {
 }}
 
 function evenTurn () {
-
+// console.log(nextTurn)
 if (nextTurn === 2) {
+
+  $oddTokens.removeClass('activePlayer')
+  $evenTokens.addClass('activePlayer')
+
+  // toastImg.innerHTML = '<img src="panda_face.png">'
+  // launchToast('Player Two, make your move!')
+
+  p1Message.innerHTML = ''
+  p2Message.innerHTML = 'Select a number,<br>then click to place it.'
 
 if (!num2Used) {
   $num2.one('click', function() {
@@ -184,21 +240,16 @@ if (!num8Used) {
     nextTurn = 1
     num8Used = true
   }})}
-
 }}
 
-
 // game board
-
 
 function placeToken () {
 
 // turns out that feeding the token value as an arugment
-// stores the first argument value in all the event handlers
-// forever, even when a new argument is passed to the parent function
+// stores the first argument value in all the event handlers forever,
+// even when a new argument is passed to the parent function
 // ugh
-
-  console.log(currentToken)
 
 if (boardActive) {
 
@@ -233,7 +284,7 @@ if (boardActive) {
     win3.push(currentToken)
     win4.push(currentToken)
     win8.push(currentToken)
-    boxCused = true;
+    boxCUsed = true;
     checkForWin()
   }})}
 
@@ -244,7 +295,7 @@ if (boardActive) {
     $boxD.text(currentToken)
     win1.push(currentToken)
     win5.push(currentToken)
-    boxDused = true;
+    boxDUsed = true;
     checkForWin()
   }})}
 
@@ -257,7 +308,7 @@ if (boardActive) {
     win5.push(currentToken)
     win7.push(currentToken)
     win8.push(currentToken)
-    boxEused = true;
+    boxEUsed = true;
     checkForWin()
   }})}
 
@@ -268,7 +319,7 @@ if (boardActive) {
     $boxF.text(currentToken)
     win3.push(currentToken)
     win5.push(currentToken)
-    boxFused = true;
+    boxFUsed = true;
     checkForWin()
   }})}
 
@@ -280,7 +331,7 @@ if (boardActive) {
     win1.push(currentToken)
     win6.push(currentToken)
     win8.push(currentToken)
-    boxGused = true;
+    boxGUsed = true;
     checkForWin()
   }})}
 
@@ -291,7 +342,7 @@ if (boardActive) {
     $boxH.text(currentToken)
     win2.push(currentToken)
     win6.push(currentToken)
-    boxHused = true;
+    boxHUsed = true;
     checkForWin()
   }})}
 
@@ -303,11 +354,30 @@ if (boardActive) {
     win3.push(currentToken)
     win6.push(currentToken)
     win7.push(currentToken)
-    boxIused = true;
+    boxIUsed = true;
     checkForWin()
   }})}
 
 }}
 
+// Now for the toast code from
+// Pierre Smith
+// https://codepen.io/kipp0/pen/pPNrrj
+// and emoji images courtesy of
+// https://www.webpagefx.com/tools/emoji-cheat-sheet/
 
-oddTurn()
+function launchToast(str) {
+    toastText.textContent = str;
+    toastDiv.className = "show";
+    setTimeout(function(){ toastDiv.className = toastDiv.className.replace("show", ""); }, 5000);
+}
+
+function startGame () {
+  // set the style for player one
+  // toastImg.innerHTML = '<img src="checkered_flag.png">'
+  // launchToast('Welcome to the game!')
+  setTimeout(oddTurn, 1000)
+}
+
+
+startGame();
