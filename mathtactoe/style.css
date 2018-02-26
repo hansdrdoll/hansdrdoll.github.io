@@ -85,7 +85,7 @@ h4 {
   font-weight: 700;
   height: 100px;
   width: 100px;
-  border:1px white solid;
+  border:1px solid rgb(255,240,209);
   border-radius: 4px;
   margin: 20px 10px;
   font-size: 100px;
@@ -93,7 +93,7 @@ h4 {
 }
 
 .usedBox {
-  border: 1px grey solid;
+  border: 1px solid rgb(118,105,138);
   border-radius: 4px;
 }
 
@@ -135,14 +135,16 @@ h4 {
   color: #fff;
   animation: fadein 0.5s;
   padding: 10px;
+  transition: background-color 0.7s;
 }
 
 .winPlayer {
-  background-color: rgb(172,81,138);
+  /*background-color: rgb(172,81,138);*/
   color: #fff;
-  animation: fadein 0.5s;
-  border: 2px solid white;
-  border-radius: 2px;
+  background-color: rgba(167,97,142,.7);
+  transition: 0.5s;
+  border: 2px solid rgb(242,155,160);
+  border-radius: 3px;
 }
 
 .token {
@@ -154,7 +156,17 @@ h4 {
   margin: 10px auto;
 }
 
+.activePlayer .token:hover {
+  /*background-color: rgb(92,107,143);*/
+  color: rgb(242,155,160);
+  /*text-shadow: 0 0 3px rgba(255,255,255,.5);*/
+}
+
 .usedToken {
+  color:rgb(51,69,92);
+}
+
+.activePlayer .usedToken:hover {
   color:rgb(51,69,92);
 }
 
