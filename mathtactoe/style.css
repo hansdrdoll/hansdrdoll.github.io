@@ -59,8 +59,10 @@ h4 {
 
 .board {
   background-color:rgb(104,92,121);
+  border: 2px solid rgb(104,92,121);
+  border-radius: 4px;
   order: 2;
-  padding: 10px;
+  padding: 0 10px;
   margin: 0 auto;
   display: flex;
   flex-flow:row;
@@ -82,20 +84,22 @@ h4 {
   font-weight: 700;
   height: 100px;
   width: 100px;
-  border:1px grey solid;
+  border:1px white solid;
+  border-radius: 4px;
   margin: 20px 10px;
   font-size: 100px;
   text-align: center;
 }
 
 .usedBox {
-/*  font-size:100px;
-*/}
+  border: 1px grey solid;
+  border-radius: 4px;
+}
 
 .oddTokens {
   /*border: 1px solid orange;*/
   height: 510px;
-  width: 220px;
+  /*width: 200px;*/
   border: 2px solid rgb(69,92,123);
   border-radius: 5px;
   margin: 0 auto;
@@ -103,19 +107,19 @@ h4 {
   flex-direction: column;
   align-self:flex-start;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px;
 }
 
 .evenTokens {
   height: 510px;
-  width: 220px;
+  /*width: 200px;*/
   border: 2px solid rgb(69,92,123);
   border-radius: 5px;
   margin: 0 auto;
   order: 3;
   align-self: flex-start;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px;
 }
 
 .message {
@@ -124,12 +128,12 @@ h4 {
 }
 
 .activePlayer {
-  /*height: 220px;*/
   background-color: rgb(80,107,143);
   border: 2px solid rgb(80,107,143);
   border-radius: 5px;
   color: #fff;
   animation: fadein 0.5s;
+  padding: 10px;
 }
 
 .winPlayer {
@@ -153,7 +157,7 @@ h4 {
   color:rgb(51,69,92);
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 850px) {
 
 h1 {
   font-size: 30px;
@@ -184,38 +188,32 @@ h4 {
   align-items:center;
   flex: 1 1 auto;
 }
-
 .board {
   order: 2;
-  /*padding: 10px;*/
-  margin: 0 auto;
-  display: flex;
+  width: 100%;
+  height: 100%;
   flex-flow:row;
-  align-items: center;
   justify-content: center;
+  padding: 20px 0;
 }
 .row {
   flex-flow: row;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0 auto;
+  align-content: center;
+  margin: 0;
 }
-
 .box {
   height: 80px;
   width: 80px;
-  border:1px grey solid;
   margin: 5px;
   font-size: 80px;
+  margin: 10px 5px;
+  justify-content: center;
 }
 .oddTokens {
   display:inline-block;
   height: auto;
   width: 80%;
-  border: 2px solid rgb(69,92,123);
-  border-radius: 5px;
-  margin: 0 auto;
   order: 1;
   flex-direction: row;
   align-self: flex-start;
@@ -226,9 +224,6 @@ h4 {
   display: inline-block;
   height: auto;
   width: 80%;
-  border: 2px solid rgb(69,92,123);
-  border-radius: 5px;
-  margin: 0 auto;
   order: 3;
   flex-direction: row;
   align-self: flex-start;
