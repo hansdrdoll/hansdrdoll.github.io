@@ -2,7 +2,7 @@ const body = document.querySelector("body");
 const board = document.querySelector(".js-board");
 const paintCan = document.querySelector(".js-paintCan");
 
-const colors = ["blue", "purple", "green", "orange", "grey", "red"];
+const colors = ["blue", "yellow", "green", "orange", "pink", "black"];
 let pegBoard = [];
 let masterCodeValues = [];
 let feedbackMatrix = [];
@@ -45,7 +45,7 @@ function createBoardAndPegBoardObj() {
     for (let y = 0; y <= boardCells; y++) {
       // create the html elements
       let newDiv = document.createElement("div");
-      newDiv.classList.add("white");
+      newDiv.classList.add("box");
       newDiv.id = "" + x + y;
       row.appendChild(newDiv);
       // push the new object to the row array
@@ -55,7 +55,6 @@ function createBoardAndPegBoardObj() {
     // push the row array to the pegBoard
     pegBoard.push(rowArr);
   }
-  document.querySelectorAll(`.row`)[currentTurn].classList.add('activeRow')
 }
 
 function createGuessButton() {
@@ -63,7 +62,7 @@ function createGuessButton() {
   guessButton.classList.add("guessButton");
   guessButton.textContent = "Check your guess";
   guessButton.addEventListener("click", runCheckGuessButton);
-  paintCan.appendChild(guessButton);
+  body.appendChild(guessButton);
 }
 
 function runCheckGuessButton() {
@@ -178,7 +177,6 @@ function checkScore() {
   let score = feedbackMatrix.reduce((a, b) => a + b);
   if (score === 8) {
     console.log("you win");
-    appendMasterCodesDiv();
   } else {
     printFeedback();
     feedbackMatrix = [];
@@ -198,10 +196,10 @@ function printFeedback() {
         feedbackPeg.classList.add("noMatch");
         break;
       case 1:
-        feedbackPeg.classList.add("feedbackPegHalf");
+        feedbackPeg.classList.add("halfMatch");
         break;
       case 2:
-        feedbackPeg.classList.add("feedbackPegFull");
+        feedbackPeg.classList.add("fullMatch");
     }
   }
 }
@@ -241,15 +239,12 @@ form.addEventListener("submit", function(evt) {
   console.log(nameImput.value);
 });
 
-
 function nextTurn() {
-  document.querySelectorAll(`.row`)[currentTurn].classList.remove('activeRow')
   currentTurn--;
   setMasterCodesFalse();
   // reassign the event listeners
   removePegRowEventListeners(currentTurn);
   assignPegRowEventListeners(currentTurn);
-  document.querySelectorAll(`.row`)[currentTurn].classList.add('activeRow')
 }
 
 function init() {
@@ -259,6 +254,7 @@ function init() {
   currentTurn = boardRows;
   assignPegRowEventListeners(currentTurn);
   createMasterCodes();
+  appendMasterCodesDiv();
   createGuessButton();
   // console.log("the master code is", masterCodeValues);
 }
