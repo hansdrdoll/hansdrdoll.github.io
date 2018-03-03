@@ -1,5 +1,6 @@
 const body = document.querySelector("body");
-const board = document.querySelector(".js-board");
+const container = document.querySelector(".container")
+// const board = document.querySelector(".js-board");
 const paintCan = document.querySelector(".js-paintCan");
 
 const colors = ["blue", "purple", "green", "orange", "grey", "red"];
@@ -38,7 +39,7 @@ function createBoardAndPegBoardObj() {
     // create the html row
     let row = document.createElement("div");
     row.classList.add("row", "js-row" + x);
-    board.appendChild(row);
+    container.appendChild(row);
     // make an array for this row
     let rowArr = [];
 
@@ -92,10 +93,15 @@ function rinseOffPaintBrushes() {
   paintCan.classList.remove("activePaintColor");
 }
 
-function assignPaintColor(event) {
-  let id = event.target.id;
+function assignPaintColor(evt) {
+  // remove all paintbrush active classes
+  let id = evt.target.id;
+  evt.target.classList.remove('grey','purple','orange','blue','red','green')
   pegBoard[id[0]][id[1]].color = currentColor;
-  event.target.classList.add(currentColor);
+  // solving for edge case when user clicks peg before selecting color
+  if (currentColor != undefined) {
+  evt.target.classList.add(currentColor);
+}
 }
 
 function assignPegRowEventListeners(turn) {
@@ -139,7 +145,7 @@ function appendMasterCodesDiv() {
     eachMasterCode.classList.add(masterCodeValues[i].color);
     masterCodeDiv.appendChild(eachMasterCode);
   }
-  document.body.appendChild(masterCodeDiv);
+  container.appendChild(masterCodeDiv);
 }
 
 function setMasterCodesFalse() {
@@ -162,11 +168,11 @@ function createFeedbackDiv() {
       feedbackPeg.id = "f" + i + x;
       feedbackRow.appendChild(feedbackPeg);
     }
-    feedbackWrapper.appendChild(feedbackRow);
+    container.appendChild(feedbackRow);
   }
 }
 
-// add the shuffle function here?
+// sort this array after generating it
 function makeFeedbackArray(turn) {
   for (let i = 0; i < pegBoard[turn].length; i++) {
     feedbackMatrix.push(pegBoard[turn][i].match);
