@@ -29,43 +29,49 @@ height: 100%;
 background: #37474f;
 background: radial-gradient(#607d8b, #37474f);
 color: #000;
-display: flex;
-align-items: center;
-justify-content: center;
+display: grid;
+grid-template-columns: 1fr 6fr 1fr;
+grid-template-rows: 80px 2fr 1fr;
+justify-items: center;
 font-family: 'Open Sans', sans-serif;
 }
 
 .header {
   font-family: 'Biryani', sans-serif;
   font-weight: 900;
-  display: inline-block;
-  position: absolute;
-  top: 1.5rem;
-  margin: 0 auto;
+  text-align: center;
+  grid-row: 1;
+  grid-column: 2;
   color: #00000099;
 }
 
 .gameContainer {
-  /*box-sizing: border-box;*/
-  /*margin-top: 8em;*/
+  grid-column: 2;
+  grid-row: 2;
   display:grid;
   max-width: 600px;
   min-width: 420px;
   grid-template-columns: 3fr 1fr 3fr;
-  /*grid-template-columns: 210px 50px 220px;*/
   grid-template-rows: repeat(10, 3em);
   grid-column-gap: .5em;
   grid-row-gap: .3em;
   grid-auto-flow: column;
   justify-content: center;
   padding: 30px;
-  margin-top: 2em;
 }
 
-.board {
-  /*border: 1px solid red;*/
+.containerHard {
+  grid-template-columns: 4fr 1fr 3fr;
+  font-size: small;
 }
 
+.footer {
+  grid-column: 2;
+  grid-row: 3;
+  max-width: 600px;
+  min-width: 420px;
+
+}
 .row {
   grid-column-start: 1;
   display:inline-grid;
@@ -76,6 +82,9 @@ font-family: 'Open Sans', sans-serif;
   border-radius:0px;
   height:3em;
   text-align:center;
+}
+.rowHard {
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr !important;
 }
 
 .row div {
@@ -100,6 +109,10 @@ font-family: 'Open Sans', sans-serif;
   justify-content: center;
 }
 
+.paintCanEasy {
+  grid-template-columns: 48px 48px;
+}
+
 .paintBrush {
   margin: .4em;
   color: #37474f88;
@@ -107,14 +120,25 @@ font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
+.paintBrushEasy {
+  grid-row: 2;
+}
+
 .guessButton {
   grid-column: 1/4;
 }
 
-.activePaintColor {
-  animation: pulse 1.5s infinite linear alternate;
-  /*transition: 1s;*/
+.reset-game-btn {
+  position: absolute !important;
+  bottom: 40%;
+  right: 0%;
+  animation: fade 1s;
 }
+
+.activePaintColor {
+  animation: pulse 1.2s infinite linear alternate;
+}
+
 @keyframes pulse {
   0% {
   box-shadow:
@@ -139,6 +163,10 @@ font-family: 'Open Sans', sans-serif;
   justify-content: center;
 }
 
+.feedbackRowHard {
+  width: 4em;
+}
+
 .masterCodeDiv {
   grid-row: 8/11;
   grid-column: 3;
@@ -147,20 +175,22 @@ font-family: 'Open Sans', sans-serif;
   align-items: center;
   justify-content: center;
   flex-flow: wrap;
-
-  /*padding: 5px;*/
 }
 
- div.fade {
-    animation: fade 2s;
-    opacity: 1;
- }
-@-webkit-keyframes fade {
-    from {opacity: 0}
-    to {opacity: 1}
-}@keyframes fade {
-    from {opacity: 0}
-    to {opacity: 1}
+.masterCodeDivHard {
+  grid-row: 7/11;
+  grid-column: 3;
+  grid-template-columns: 48px 48px 48px;
+}
+
+div.fade {
+  animation: fade 2s;
+  opacity: 1;
+}
+
+@keyframes fade {
+  from {opacity: 0}
+  to {opacity: 1}
 }
 
 .masterCode {
@@ -168,10 +198,6 @@ font-family: 'Open Sans', sans-serif;
   width: 2em;
   height: 2em;
   display: inline-block;
-}
-
-.landing {
-  display:none;
 }
 
 .emptyPeg {
@@ -183,7 +209,6 @@ font-family: 'Open Sans', sans-serif;
   height:40px;
   width:41px;
   text-align:center;
-  /*text-shadow:1px 1px 0px #ffffff;*/
 }
 
 .activePeg {
@@ -204,7 +229,6 @@ font-family: 'Open Sans', sans-serif;
   height:40px;
   width:41px;
   text-align:center;
-  /*text-shadow:1px 1px 0px #ffffff;*/
 }
 .whitePeg:hover {
   background-color:#e9e9e9;
@@ -226,7 +250,6 @@ font-family: 'Open Sans', sans-serif;
   width:41px;
   text-decoration:none;
   text-align:center;
-  /*text-shadow:1px 1px 0px #7d15cd;*/
 }
 .magentaPeg:hover {
   background-color:#9575cd;
@@ -248,7 +271,6 @@ font-family: 'Open Sans', sans-serif;
   width:41px;
   text-decoration:none;
   text-align:center;
-  /*text-shadow:1px 1px 0px #cc9f52;*/
 }
 .orangePeg:hover {
   background-color:#ffd54f;
@@ -270,7 +292,6 @@ font-family: 'Open Sans', sans-serif;
   width:41px;
   text-decoration:none;
   text-align:center;
-  /*text-shadow:1px 1px 0px #528ecc;*/
 }
 .bluePeg:hover {
   background-color:#4dd0e1;
@@ -292,7 +313,6 @@ font-family: 'Open Sans', sans-serif;
   width:41px;
   text-decoration:none;
   text-align:center;
-  /*text-shadow:1px 1px 0px #810e05;*/
 }
 .redPeg:hover {
   background-color:#e57373;
@@ -314,7 +334,6 @@ font-family: 'Open Sans', sans-serif;
   width:41px;
   text-decoration:none;
   text-align:center;
-  /*text-shadow:1px 1px 0px #86ae47;*/
 }
 .greenPeg:hover {
   background-color:#aed581;
@@ -353,8 +372,8 @@ font-family: 'Open Sans', sans-serif;
   margin: 2px;
 }
 
-.playerInitals {
-  font-size: 24px;
+.playerInitials {
+  font-size: 1.5em;
   grid-column: 3;
   grid-row: 1/2;
   align-self: start;
@@ -364,7 +383,7 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .instructions {
-  font-size: 1em;
+  font-size: .9em;
   grid-column: 3;
   grid-row: 2/8;
   transition: 2s;
@@ -376,6 +395,13 @@ input {
   text-transform: uppercase;
 }
 
+input-field {
+  margin: 20px !important;
+}
+
+/*.modial {
+
+}*/
 
 @media only screen and (max-width: 550px) {
 .gameContainer {
