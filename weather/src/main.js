@@ -1,10 +1,5 @@
 console.log('main.js is connected!');
 
-// google api key
-// AIzaSyDoN7vKc3SI5bmLX4HPA0KtjaA4D1HhJ3k
-// dark sky api key
-// 5e07d853aba56b2d13801f6ae51a0a63
-
 let url = new URL(window.location);
 
 let params = new URLSearchParams(url.search.slice(1));
@@ -14,6 +9,9 @@ let userUnitPref;
 
 let locationInputField = document.querySelector('.location-input')
 let locationSubmitButton = document.querySelector('.location-submit')
+
+let header = document.querySelector("header");
+let sticky = header.offsetTop;
 
 // thanks w3schools
 let addUrlParams = (name, value) => {
@@ -27,11 +25,11 @@ let checkUrlParams = () => {
   if (locationInUrl) {
     getLatLonThenForecast(locationInUrl)
     locationInputField.placeholder = locationInUrl
+  } else {
+    console.log('no params!')
+    document.querySelector('.current-conditions').textContent = "Enter your location above, and I'll show you some weather data!"
   }
 }
-
-let header = document.querySelector("header");
-let sticky = header.offsetTop;
 
 let stickyHeader = () => {
   if (window.pageYOffset >= sticky) {
@@ -54,23 +52,14 @@ let submitButtonListener = () => {
   })
 }
 
-let setUserUnitPreference = () => {
-// metric, imperial
-userUnitPref = params.get('unit')
-
-// check url for set param
-// if true, pass value to global var
-
-// if false set metric as default
-// add event listeners to radio buttons
-// event listeners set global var, trigger redraw, and add url param
-
-}
+// let setUserUnitPreference = () => {
+// // metric, imperial
+// userUnitPref = params.get('unit')
+// }
 
 // THIS WHOLE FUNCTION IS SO SMELLY
 let makeGeolocationButton = () => {
   if ("geolocation" in navigator) {
-    // let header = document.querySelector('header')
     let findMeButton = document.createElement('input')
     findMeButton.type = "button"
     findMeButton.value = "Find Me!"
@@ -101,18 +90,20 @@ let getLatLonThenForecast = (input) => {
     // console.log('google',lat,lng)
     getWeatherInfo(lat, lng)
     getForecast(lat, lng)
+    console.log(response)
+    addUrlParams('location',response.results[0].formatted_address)
+    locationInputField.value = response.results[0].formatted_address
   })
 }
 
 let getWeatherInfo = (lat, lng) => {
-  let weatherData = get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=imperial&appid=cd482b74889dab43efe2bedfc9f9e7bd`)
+  let weatherData = get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=imperial&appid=cd482b74889dab43efe2bedfc9f9e7bd`)
     .then(response => {
       console.log(response)
       return response
       })
 
   let currentConditionsContainer = document.querySelector('section.current-conditions')
-
   currentConditionsContainer.innerHTML = '';
 
   weatherData.then(res => {
@@ -129,35 +120,36 @@ let getWeatherInfo = (lat, lng) => {
     locationName.textContent = `${res.name}`;
     infoLeftContainer.appendChild(locationName);
 
+    // thanks to "basarat" for this one
+    // https://gist.github.com/basarat/4670200
     let getCardinal = (angle) => {
-        //easy to customize by changing the number of directions you have
-        let directions = 8;
+      let directions = 8;
 
-        let degree = 360 / directions;
-        angle = angle + degree/2;
+      let degree = 360 / directions;
+      angle = angle + degree/2;
 
-        if (angle >= 0 * degree && angle < 1 * degree)
-            return "N";
-        if (angle >= 1 * degree && angle < 2 * degree)
-            return "NE";
-        if (angle >= 2 * degree && angle < 3 * degree)
-            return "E";
-        if (angle >= 3 * degree && angle < 4 * degree)
-            return "SE";
-        if (angle >= 4 * degree && angle < 5 * degree)
-            return "S";
-        if (angle >= 5 * degree && angle < 6 * degree)
-            return "SW";
-        if (angle >= 6 * degree && angle < 7 * degree)
-            return "W";
-        if (angle >= 7 * degree && angle < 8 * degree)
-            return "NW";
-        //Should never happen:
-        return "N";
-      }
+      if (angle >= 0 * degree && angle < 1 * degree)
+          return "N";
+      if (angle >= 1 * degree && angle < 2 * degree)
+          return "NE";
+      if (angle >= 2 * degree && angle < 3 * degree)
+          return "E";
+      if (angle >= 3 * degree && angle < 4 * degree)
+          return "SE";
+      if (angle >= 4 * degree && angle < 5 * degree)
+          return "S";
+      if (angle >= 5 * degree && angle < 6 * degree)
+          return "SW";
+      if (angle >= 6 * degree && angle < 7 * degree)
+          return "W";
+      if (angle >= 7 * degree && angle < 8 * degree)
+          return "NW";
+      //Should never happen:
+      return "N";
+    }
 
     let windSpeed = document.createElement('h2');
-    windSpeed.textContent = `Wind: ${res.wind.speed} miles/hour ${getCardinal(res.wind.deg)}`;
+    windSpeed.textContent = `Wind: ${res.wind.speed} mph ${getCardinal(res.wind.deg)}`;
     infoLeftContainer.appendChild(windSpeed);
 
     let humidity = document.createElement('h2');
@@ -167,12 +159,6 @@ let getWeatherInfo = (lat, lng) => {
     let sunriseSunset = () => {
       // thanks stackoverflow
       // https://stackoverflow.com/a/847196/9355291
-      // let currentDate = Date.now()
-      // decided against using current time to change wording
-      // let parsedCurrentDate = parseInt(currentDate.toString().substring(0,10))
-      // console.log('onix',parsedCurrentDate)
-      console.log('unix',res.sys.sunset)
-
       let sunriseDate = new Date(res.sys.sunrise*1000);
       let sunriseHours = sunriseDate.getHours();
       let sunriseMinutes = "0" + sunriseDate.getMinutes();
@@ -184,14 +170,7 @@ let getWeatherInfo = (lat, lng) => {
       let sunsetTime = sunsetHours + ':' + sunsetMinutes.substr(-2);
 
       let sunTimes = document.createElement('h2')
-      sunTimes.innerHTML = `Sunrise: 0${sunriseTime}<br> Sunset: ${sunsetTime}`
-      // if (parsedCurrentDate < res.sys.sunrise && parsedCurrentDate ) {
-      //   sunTimes.innerHTML = `The Sun will rise at ${sunriseTime},<br> and set at ${sunsetTime}`
-      // } else if (parsedCurrentDate < res.sys.sunset) {
-      //   sunTimes.innerHTML = `The Sun rose at ${sunriseTime},<br> and will set at ${sunsetTime}`
-      // } else {
-      //   sunTimes.innerHTML = `The Sun rose at ${sunriseTime},<br> and set at ${sunsetTime}`
-      // }
+      sunTimes.innerHTML = `Sunrise: ${sunriseTime}<br> Sunset: ${sunsetTime}`
       infoLeftContainer.appendChild(sunTimes)
     }
 
@@ -218,7 +197,7 @@ let getWeatherInfo = (lat, lng) => {
  }
 
 let getForecast = (lat, lng) => {
-  let forecastData = get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=imperial&appid=cd482b74889dab43efe2bedfc9f9e7bd`)
+  let forecastData = get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=imperial&appid=cd482b74889dab43efe2bedfc9f9e7bd`)
     .then(response => {
       // console.log(response)
       return response})
@@ -236,62 +215,61 @@ let getForecast = (lat, lng) => {
       let date;
       let thisDate = res.list[i].dt_txt.substring(8,10)
 
-    let rowBuilder = () => {
-      let newForecastRow = document.createElement('article')
-      newForecastRow.classList.add(`forecast-row-${currentRow}`,`forecast-row`)
-      date = new Date(res.list[i].dt_txt.substring(0,10))
-      // the documentation says that Sunday should = 0 and Monday = 1, but it's not...
-      let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-      let dateRowHeader = document.createElement('h4')
-      let newDayDiv = document.createElement('div')
-      dateRowHeader.textContent = days[date.getDay()]
+      let rowBuilder = () => {
+        let newForecastRow = document.createElement('article')
+        newForecastRow.classList.add(`forecast-row-${currentRow}`,`forecast-row`)
+        date = new Date(res.list[i].dt_txt.substring(0,10))
+        // the documentation says that Sunday should = 0 and Monday = 1, but it's not...
+        let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+        let dateRowHeader = document.createElement('h4')
+        let newDayDiv = document.createElement('div')
+        dateRowHeader.textContent = days[date.getDay()]
 
-      forecastSection.appendChild(newDayDiv)
-      newDayDiv.appendChild(dateRowHeader)
-      newDayDiv.appendChild(newForecastRow)
-    }
+        forecastSection.appendChild(newDayDiv)
+        newDayDiv.appendChild(dateRowHeader)
+        newDayDiv.appendChild(newForecastRow)
+      }
 
-    let fillForecastRows = () => {
+      let fillForecastRows = () => {
 
-      let forecastRow = document.querySelector(`.forecast-row-${currentRow}`)
+        let forecastRow = document.querySelector(`.forecast-row-${currentRow}`)
 
-      // let dateElement = document.createElement('date')
-      // dateElement.textContent = `${time.substring(5,10)}`
-      // forecastRow.appendChild(dateElement);
+        // let dateElement = document.createElement('date')
+        // dateElement.textContent = `${time.substring(5,10)}`
+        // forecastRow.appendChild(dateElement);
 
-      let timeElement = document.createElement('time')
-      timeElement.textContent = `${time.substring(11,16)}`
-      forecastRow.appendChild(timeElement);
+        let timeElement = document.createElement('time')
+        timeElement.textContent = `${time.substring(11,16)}`
+        forecastRow.appendChild(timeElement);
 
-      let condition = document.createElement('condition')
-      condition.textContent = res.list[i].weather[0].main
-      forecastRow.appendChild(condition)
+        let condition = document.createElement('condition')
+        condition.textContent = res.list[i].weather[0].main
+        forecastRow.appendChild(condition)
 
-      let conditionIcon = document.createElement('img');
-      // conditionIcon.type = 'image/svg+xml';
-      conditionIcon.src = `./img/static/${res.list[i].weather[0].icon}.svg`
-      forecastRow.appendChild(conditionIcon)
+        let conditionIcon = document.createElement('img');
+        // conditionIcon.type = 'image/svg+xml';
+        conditionIcon.src = `./img/static/${res.list[i].weather[0].icon}.svg`
+        forecastRow.appendChild(conditionIcon)
 
-      let temp = document.createElement('temp')
-      temp.innerHTML = `${Math.round(res.list[i].main.temp)}&deg;`
-      forecastRow.appendChild(temp)
-    }
+        let temp = document.createElement('temp')
+        temp.innerHTML = `${Math.round(res.list[i].main.temp)}&deg;`
+        forecastRow.appendChild(temp)
+      }
 
-    if (firstDate != thisDate) {
-      currentRow++
-      // console.log('if',firstDate,' ',thisDate)
-      rowBuilder()
-      fillForecastRows()
-      firstDate = thisDate
-    } else {
-      // console.log('else',firstDate,' ',thisDate)
-      fillForecastRows()
-      firstDate = thisDate
-    }
+      if (firstDate != thisDate) {
+        currentRow++
+        // console.log('if',firstDate,' ',thisDate)
+        rowBuilder()
+        fillForecastRows()
+        firstDate = thisDate
+      } else {
+        // console.log('else',firstDate,' ',thisDate)
+        fillForecastRows()
+        firstDate = thisDate
+      }
 // end of for loop
-}
-
-    })
+    }
+  })
 }
 
 let init = () => {
