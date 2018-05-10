@@ -1,0 +1,11 @@
+body {
+  background-color: #e3f2fd;
+}
+
+.clear-float {
+  clear: both;
+}
+
+.intro-and-projects {
+  margin-top: 4em;
+}
