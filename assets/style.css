@@ -6,6 +6,29 @@ body {
   clear: both;
 }
 
-.intro-and-projects {
-  margin-top: 4em;
+.top-margin {
+  margin-top: 5em;
+  /* border: 1px solid white; */
+}
+
+.top-margin h2 {
+  padding-top: 1em;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.chip {
+  background: rgba(199, 212, 245, .5) !important;
+}
+
+h3 {
+  text-align: center;
+}
+
+.bullets {
+  margin-left: 3em;
+  font-size: 1.7em;
+  list-style-type: none;
 }
