@@ -9,10 +9,34 @@
   <body>
     <header class="navbar">
       <section class="navbar-section">
-        <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">resume</a>
-        <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">linkedin</a>
-        <a href="https://github.com/hansdrdoll" class="btn btn-link">github</a>
-        <a href="#contact" class="btn btn-link">contact</a>
+        <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">
+          <div class="chip">
+            <img alt="Hans' Resume" src="assets/_ionicons_svg_md-document.svg" class="header-logo avatar avatar-xs">
+            resume
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">
+          <div class="chip">
+            <object type="image/svg+xml" alt="Hans on LinkedIn" data="assets/_ionicons_svg_logo-linkedin.svg" class="header-logo avatar avatar-xs">
+            </object>
+            linkedin
+          </div>
+        </a>
+
+        <a href="https://github.com/hansdrdoll" class="btn btn-link">
+          <div class="chip">
+          <img alt="Hans on github" src="assets/_ionicons_svg_logo-github.svg" class="header-logo avatar avatar-xs">
+          github
+        </div>
+        </a>
+
+        <a href="#contact" class="btn btn-link">
+          <div class="chip">
+            <img alt="Contact Hans" src="assets/_ionicons_svg_md-mail.svg" class="header-logo avatar avatar-xs">
+            contact
+          </div>
+        </a>
     </section>
   </header>
   <div class="container">
@@ -28,34 +52,55 @@
             <div class="top-margin clearfix">
               <div class="column col-4 float-right">
                 <a href="https://just-todo-it.herokuapp.com/">
-                  <img src="assets/todoing.png" class="img-responsive card">
+                  <img src="assets/todoing.png" class="img-responsive card screenshot">
                 </a>
+                <figure class="figure-caption text-center">
                   <span class="chip">React</span><span class="chip">Rails</span>
+                  <a href="https://github.com/hansdrdoll/todoing">
+                    <span class="chip">
+                      <img alt="Todoing on github" src="assets/_ionicons_svg_logo-github-link.svg" class="github-icon">
+                    </span>
+                  </a>
+                </figure>
               </div>
               <div class="column col-8">
               <h2>
-                <span role="img" aria-label="notepad">📝</span>
+                <span class="emoji" role="img" aria-label="notepad">📝</span>
                 Currently I’m working on a text-editor based todo app for people who don’t like productivity apps.
               </h2>
             </div>
           </div>
 
             <div class="top-margin clearfix">
-              <div class="column col-2 float-left">
-                <a href="https://hansdrdoll.github.io/mastermind/">
-                <img src="assets/mastermind.png" class="img-responsive card">
-              </a>
-                  <span class="chip">Vanilla JS</span>
-              </div>
               <div class="column col-3 float-left">
-                <a href="https://hansdrdoll.github.io/mathtactoe/">
-                  <img src="assets/math-tac-toe.png" class="img-responsive card">
-                </a>
-                    <span class="chip">Vanilla JS</span>
+                <a href="https://hansdrdoll.github.io/mastermind/">
+                <img src="assets/mastermind.png" class="img-responsive card screenshot">
+              </a>
+                <figure class="figure-caption text-center">
+                  <span class="chip">JS ES6
+                  </span><a href="https://github.com/hansdrdoll/mastermind"><span class="chip">
+                      <img alt="Mastermind on github" src="assets/_ionicons_svg_logo-github-link.svg" class="github-icon">
+                    </span>
+                  </a>
+                </figure>
               </div>
-              <div class="column col-10 centered">
+              <div class="column col-4 float-left">
+                <a href="https://hansdrdoll.github.io/mathtactoe/">
+                  <img src="assets/math-tac-toe.png" class="img-responsive card screenshot">
+                </a>
+                  <figure class="figure-caption text-center">
+                    <span class="chip">
+                      JavaScript
+                    </span><span class="chip">
+                      jQuery</span><a href="https://github.com/hansdrdoll/math-tac-toe"><span class="chip">
+                        <img alt="Math-tac-toe on github" src="assets/_ionicons_svg_logo-github-link.svg" class="github-icon">
+                      </span>
+                    </a>
+                  </figure>
+              </div>
+              <div class="column col-12 centered">
                 <h2 class="align-right">
-                  I’ve also made a few games
+                  I’ve recreated two of my favorite strategy games
                   <span role="img" aria-label="space invader">👾</span>
                 </h2>
               </div>
@@ -64,10 +109,16 @@
           <div class="top-margin clearfix">
           <div class="column col-4 float-right">
             <a href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
-              <img src="assets/designer-resourcing.png" class="img-responsive card">
+              <img src="assets/designer-resourcing.png" class="img-responsive card screenshot">
             </a>
               <figure class="figure-caption text-center">
-                <span class="chip">Node</span><span class="chip">Express</span><span class="chip">Postgres</span>
+                <span class="chip">
+                  Node</span><span class="chip">
+                  Express</span><span class="chip">
+                  Postgres</span><a href="https://github.com/hansdrdoll/designer_resourcing"><span class="chip">
+                    <img alt="designer resourcing on github" src="assets/_ionicons_svg_logo-github-link.svg" class="github-icon">
+                  </span>
+                </a>
               </figure>
           </div>
           <div class="column col-8">
@@ -79,14 +130,14 @@
       </div>
 
             <div class="top-margin column col-12 centered">
-              <h3>(i'm big on things being useful.)</h3>
+              <h3>(I'm big on things being useful.)</h3>
               <!-- as well as readable code! -->
             </div>
 
             <div class="top-margin clearfix">
             <div class="column col-4 float-right">
               <a href="assets/hans-kirkendoll-resume.pdf">
-                <img src="assets/resume.png" class="img-responsive card">
+                <img src="assets/resume.png" class="img-responsive card screenshot">
               </a>
             </div>
             <div class="column col-8">
@@ -148,7 +199,7 @@
                 <input class="form-input" type="email" name="_replyto" id="email" placeholder="Email">
 
                 <label class="form-label" for="message">Message</label>
-                <textarea class="form-input" id="message" name="message" placeholder="Hi, I would like to talk to you about doughnuts." rows="3"></textarea>
+                <textarea class="form-input" id="message" name="message" placeholder="Hi, I would like to talk to about shoes and ships and sealing wax." rows="3"></textarea>
 
                 <input type="hidden" name="_subject" value="Hello from the internet!" />
                 <button class="btn btn-primary input-group-btn" type="submit">Submit</button>
@@ -159,10 +210,34 @@
 
   <footer class="top-margin navbar">
     <section class="navbar-section navbar-center">
-      <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">resume</a>
-      <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">linkedin</a>
-      <a href="https://github.com/hansdrdoll" class="btn btn-link">github</a>
-      <a href="#contact" class="btn btn-link">contact</a>
+      <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">
+        <div class="chip">
+          <img alt="Hans' Resume" src="assets/_ionicons_svg_md-document.svg" class="header-logo avatar avatar-xs">
+          resume
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">
+        <div class="chip">
+          <object type="image/svg+xml" alt="Hans on LinkedIn" data="assets/_ionicons_svg_logo-linkedin.svg" class="header-logo avatar avatar-xs">
+          </object>
+          linkedin
+        </div>
+      </a>
+
+      <a href="https://github.com/hansdrdoll" class="btn btn-link">
+        <div class="chip">
+        <img alt="Hans on github" src="assets/_ionicons_svg_logo-github.svg" class="header-logo avatar avatar-xs">
+        github
+      </div>
+      </a>
+
+      <a href="#contact" class="btn btn-link">
+        <div class="chip">
+          <img alt="Contact Hans" src="assets/_ionicons_svg_md-mail.svg" class="header-logo avatar avatar-xs">
+          contact
+        </div>
+      </a>
     </section>
   </footer>
 
