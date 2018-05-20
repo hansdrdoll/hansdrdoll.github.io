@@ -5,6 +5,13 @@
     <title>Hans Kirkendoll</title>
     <link rel="stylesheet" href="assets/spectre.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <style>
+    /* thanks https://stackoverflow.com/questions/13352080/match-all-class-selectors-that-begin-with */
+    [class*='reveal']{
+      display: hidden;
+    }
+    </style>
+    <script src="assets/scrollreveal.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112820780-1"></script>
     <script>
@@ -52,12 +59,12 @@
       <div class="column col-10 col-mx-auto">
         <main>
 
-            <h1 class="top-margin">
+            <h1 class="top-margin reveal-1">
               <span role="img" aria-label="waving hand">👋</span>
               My name is Hans Kirkendoll and I’m a web developer!
             </h1>
 
-            <div class="top-margin clearfix">
+            <div class="top-margin clearfix reveal-2">
               <div class="column col-4 float-right">
                 <a href="https://just-todo-it.herokuapp.com/">
                   <img src="assets/todoing.png" class="img-responsive card screenshot">
@@ -71,7 +78,7 @@
                   </a>
                 </figure>
               </div>
-              <div class="column col-8">
+              <div class="column col-8 reveal-2">
               <h2>
                 <span class="emoji" role="img" aria-label="notepad">📝</span>
                 Currently I’m working on a text-editor based todo app for people who don’t like productivity apps.
@@ -79,7 +86,7 @@
             </div>
           </div>
 
-            <div class="top-margin clearfix">
+            <div class="top-margin clearfix reveal-3">
               <div class="column col-3 float-left">
                 <a href="mastermind">
                 <img src="assets/mastermind.png" class="img-responsive card screenshot">
@@ -92,7 +99,7 @@
                   </a>
                 </figure>
               </div>
-              <div class="column col-4 float-left">
+              <div class="column col-4 float-left reveal-3">
                 <a href="mathtactoe">
                   <img src="assets/math-tac-toe.png" class="img-responsive card screenshot">
                 </a>
@@ -106,7 +113,7 @@
                     </a>
                   </figure>
               </div>
-              <div class="column col-12 centered">
+              <div class="column col-12 centered reveal-3">
                 <h2 class="align-right">
                   I’ve recreated two of my favorite strategy games
                   <span role="img" aria-label="space invader">👾</span>
@@ -114,7 +121,7 @@
               </div>
           </div>
 
-          <div class="top-margin clearfix">
+          <div class="top-margin clearfix reveal-4">
           <div class="column col-4 float-right">
             <a href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
               <img src="assets/designer-resourcing.png" class="img-responsive card screenshot">
@@ -129,7 +136,7 @@
                 </a>
               </figure>
           </div>
-          <div class="column col-8">
+          <div class="column col-8 reveal-4">
           <h2>
             <span role="img" aria-label="paperclips">🖇</span>
             and an app for project managers to delegate hours to their teams.
@@ -137,23 +144,23 @@
         </div>
       </div>
 
-            <div class="top-margin column col-12 centered">
+            <div class="top-margin column col-12 centered reveal-5">
               <h3>(I'm big on things being useful.)</h3>
               <!-- as well as readable code! -->
             </div>
 
-            <div class="top-margin clearfix">
+            <div class="top-margin clearfix reveal-6">
             <div class="column col-4 float-right">
               <a href="assets/hans-kirkendoll-resume.pdf">
                 <img src="assets/resume.png" class="img-responsive card screenshot">
               </a>
             </div>
             <div class="column col-8">
-            <h2>
+            <h2 class="reveal-6">
               <span role="img" aria-label="chef">👨‍🍳</span>
               I managed cafés and a catering operation before I discovered a passion for programming.
             </h2>
-            <h2>
+            <h2 class="reveal-6">
               <span role="img" aria-label="graduate">👨‍🎓</span>
               I graduated from CUNY and General Assembly.
             </h2>
@@ -161,28 +168,28 @@
         </div>
 
         <div class="clearfix">
-        <div class="column col-8 centered">
+        <div class="column col-8 centered reveal-7">
         <h2>
           Bulletpoints about me!
         </h2>
         <ul class="bullets">
-          <li>
+          <li class="reveal-7">
             <span role="img" aria-label="nerd face">🤓</span>
             Fast learner
           </li>
-          <li>
+          <li class="reveal-7">
             <span role="img" aria-label="coffee cup">☕️</span>
             Customer focused
           </li>
-          <li>
+          <li class="reveal-7">
             <span role="img" aria-label="rainbow">🌈</span>
             Friendly and practical
           </li>
-          <li>
+          <li class="reveal-7">
             <span role="img" aria-label="tree">🌲</span>
             Born in Portland Oregon
           </li>
-          <li>
+          <li class="reveal-7">
             <span role="img" aria-label="person with computer">👨‍💻</span>
             Pretty Rad Developer
           </li>
@@ -190,7 +197,7 @@
 
       </div>
     </div>
-            <section id="contact" class="contact">
+            <section id="contact" class="contact reveal-8">
               <div class="top-margin column col-12 centered">
                 <h3>You can get in touch with me on
                   <a href="https://www.linkedin.com/in/hanskirkendoll/">LinkedIn</a>,
@@ -201,10 +208,10 @@
                 <form action="https://formspree.io/hans.kirkendoll+formspree@gmail.com"
       method="POST">
                 <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Name">
+                <input class="form-input" type="text" id="name" name="name" placeholder="Name" autocomplete="name">
 
                 <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" name="_replyto" id="email" placeholder="Email">
+                <input class="form-input" type="email" name="_replyto" id="email" placeholder="Email" autocomplete="email">
 
                 <label class="form-label" for="message">Message</label>
                 <textarea class="form-input" id="message" name="message" placeholder="Hi, I would like to talk about shoes and ships and sealing wax." rows="3"></textarea>
@@ -249,4 +256,15 @@
   </footer>
 
   </body>
+  <script>
+    window.sr = ScrollReveal({ origin: 'top', duration: 1200 });
+    sr.reveal('.reveal-1', { origin: 'bottom' }, 50 );
+    sr.reveal('.reveal-2', { delay: 500, origin: 'left' }, 200 );
+    sr.reveal('.reveal-3', { delay: 1000, origin: 'right' }, 200 );
+    sr.reveal('.reveal-4', { origin: 'left' }, 100 );
+    sr.reveal('.reveal-5', { origin: 'top' }, 100 );
+    sr.reveal('.reveal-6', { origin: 'left' }, 100 );
+    sr.reveal('.reveal-7', { origin: 'right' }, 120 );
+    sr.reveal('.reveal-8', 100 );
+  </script>
 </html>
