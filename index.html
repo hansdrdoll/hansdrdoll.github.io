@@ -1,270 +1,206 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hans Kirkendoll</title>
-    <link rel="stylesheet" href="assets/spectre.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <style>
-    /* thanks https://stackoverflow.com/questions/13352080/match-all-class-selectors-that-begin-with */
-    [class*='reveal']{
-      display: hidden;
-    }
-    </style>
-    <script src="assets/scrollreveal.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112820780-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-112820780-1');
-    </script>
-  </head>
-  <body>
-    <header class="navbar">
-      <section class="navbar-section">
-        <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">
-          <div class="chip">
-            <img alt="Hans' Resume" src="assets/ionicons_svg_md-document.svg" class="header-logo avatar avatar-xs">
-            resume
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">
-          <div class="chip">
-            <img alt="Hans on LinkedIn" src="assets/ionicons_svg_logo-linkedin.svg" class="header-logo avatar avatar-xs">
-            linkedin
-          </div>
-        </a>
-
-        <a href="https://github.com/hansdrdoll" class="btn btn-link">
-          <div class="chip">
-          <img alt="Hans on github" src="assets/ionicons_svg_logo-github.svg" class="header-logo avatar avatar-xs">
-          github
+    <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,700,800|Roboto:300" rel="stylesheet"> -->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js"></script> -->
+</head>
+<body>
+    <header class="header">
+        <span class="first-name">Hans&nbsp;</span>
+        <span class="text-gray">Kirkendoll</span>
+    </header>
+    <div class="container">
+        <div class="section hello">
+            <h2 class="heading-2">Hi.</h2>
+            <h4 class="heading-4">I’m a web developer.</h4>
         </div>
-        </a>
+        <div class="section current-project">
+            <div class="section-left">
+                <svg version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px"
+                    width="9em" 
+                    height="9em" 
+                    viewBox="0 0 196 196" style="enable-background:new 0 0 196 196;"
+                    xml:space="preserve">
+                    <path class="st0" d="M162,0H34C15.3,0,0,15.3,0,34V162c0,18.8,15.3,34,34,34H162c18.8,0,34-15.3,34-34V34C196,15.3,180.8,0,162,0z
+                    M184.9,162c0,12.6-10.3,22.9-22.9,22.9H34c-12.6,0-22.9-10.3-22.9-22.9V34c0-12.6,10.3-22.9,22.9-22.9H162
+                    c12.6,0,22.9,10.3,22.9,22.9V162z M130.6,70.6l7.8,7.8l-50.8,51L57.4,99l7.8-7.8l22.5,22.3L130.6,70.6z"/>
+                </svg>
+            </div>
+            <div class="section-right">
+                <h5 class="heading-5">Right now, I’m working on&hellip;</h5>
+                <p>a text editor based todo app for people who don’t like productivity apps.</p>
+                <a href="#projects">
+                    <button class="button" type="button">Learn More</button>
+                </a>
+            </div>
+        </div>
+        <div class="section flattering-picture">
+            <!-- <img src="hans-pascale.jpg" class="hans-picture"> -->
+        </div>
+        <!--
+        <div class="section headline">
+            <h2 class="heading-5">This is a headline.</h2>
+            <p>Velit culpa officia pariatur aute ex esse nisi enim. Occaecat amet est pariatur ipsum. Ipsum non commodo ut ullamco cupidatat sunt. Ad ad esse consectetur consectetur. Anim non ea ea aliqua laboris esse reprehenderit Lorem proident dolor est eiusmod ipsum.</p>
+        </div>
+        <div class="section about-me">
+            <h5 class="heading-5">Three things about me</h5>
+            <p class="sub-heading">
+                Since I was homeschooled, I'm used to independently learning new things.
+            </p>
+            <p>
+                Incididunt amet Lorem sit anim sunt anim veniam sunt veniam esse. Tempor adipisicing enim eu mollit cupidatat et esse. Et ullamco sit mollit aliqua velit cupidatat. In id ex tempor occaecat consectetur laborum. Consequat cillum nisi deserunt officia eiusmod laborum sit sit eu et. Eu sunt non commodo duis est incididunt incididunt.
+            </p>
+            <p>
 
-        <a href="#contact" class="btn btn-link">
-          <div class="chip">
-            <img alt="Contact Hans" src="assets/ionicons_svg_md-mail.svg" class="header-logo avatar avatar-xs">
-            contact
-          </div>
-        </a>
-    </section>
-  </header>
-  <div class="container">
-    <div class="columns">
-      <div class="column col-10 col-mx-auto">
-        <main>
-
-            <h1 class="top-margin reveal-1">
-              <span role="img" aria-label="waving hand">👋</span>
-              My name is Hans Kirkendoll and I’m a web developer!
-            </h1>
-
-            <div class="top-margin clearfix reveal-2">
-              <div class="column col-4 float-right">
+            </p>
+            <p class="sub-heading">
+                Something about how I work well with others (cafe/social skills)
+            </p>
+            <p>
+                Ad cupidatat excepteur cillum adipisicing qui nulla consectetur amet adipisicing mollit labore. Lorem veniam irure eiusmod cillum elit sunt officia reprehenderit consectetur ut enim. Excepteur ad ipsum est do adipisicing. Voluptate reprehenderit sunt elit elit sit Lorem. Nulla do nostrud tempor id ea tempor tempor. Adipisicing consequat cupidatat ad sint anim aliqua ipsum occaecat eu mollit cillum laborum.
+            </p>
+            <p class="sub-heading">
+                Something about maturity and training (age, career change, GA)
+            </p>
+            <p>
+                Ut fugiat ea ad Lorem ad commodo et qui minim ipsum consectetur dolore proident occaecat. Est ex commodo quis ex esse. Sit amet et sunt amet ullamco sint et excepteur deserunt nulla. In eiusmod tempor laboris adipisicing. Sint mollit culpa magna anim id adipisicing nulla voluptate cillum et Lorem.
+            </p>
+        </div>
+        -->
+        <div class="section resume">
+            <button class="button resume-btn" type="button">Download my resumé</button>
+        </div>
+        <div class="section projects" id="projects">
+            <h5 class="heading-5">A few of my projects</h5>
+            <div class="project">
+                <div>
+                    <p class="sub-heading">
+                        A text-based productivity app for people who don’t like productivity apps
+                    </p>
+                    <p>
+                        Ipsum aliquip qui aliqua eiusmod dolore labore. Enim irure tempor eiusmod dolore labore incididunt laboris reprehenderit sit do exercitation officia. Amet pariatur dolor velit enim nisi in occaecat commodo id nulla.
+                    </p>
+                    <p>
+                        <span>React</span><span>Rails</span>
+                    </p>
+                    <p>
+                        <a class="btn-link" href="https://just-todo-it.herokuapp.com/">
+                            <button class="button project-btn" type="button">Take a look</button>
+                        </a>
+                        <a href="https://github.com/hansdrdoll/todoing">
+                            <button class="button github-btn" type="button">View on GitHub</button>
+                        </a>
+                    </p>
+                </div>
+                <div class="project-img-container">
+                    <img src="./assets/images/todoing1.png" class="project-img"> 
+                </div>
+            </div>
+            <div class="project">
+                <div>
+                    <p class="sub-heading">
+                        An app for project managers to resource their teams
+                    </p>
+                    <p>
+                        Ipsum aliquip qui aliqua eiusmod dolore labore. Enim irure tempor eiusmod dolore labore incididunt laboris reprehenderit sit do exercitation officia. Amet pariatur dolor velit enim nisi in occaecat commodo id nulla.
+                    </p>
+                    <p>
+                        <span>Node</span> <span>Express</span> <span>PostgreSQL</span>
+                    </p>
+                    <p>
+                        <a class="btn-link" href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
+                            <button class="button project-btn" type="button">Take a look</button>
+                        </a>
+                        <a href="https://github.com/hansdrdoll/designer_resourcing">
+                            <button class="button github-btn" type="button">View on GitHub</button>
+                        </a>
+                    </p>
+                </div>
+                <div class="project-img-container">
+                    <img src="./assets/images/resourcing1.png" class="project-img"> 
+                </div>
+            </div>
+            <div class="project">
+                <div>
+                    <p class="sub-heading">
+                        My two favorite strategy games
+                    </p>
+                    <p>
+                        Ipsum aliquip qui aliqua eiusmod dolore labore. Enim irure tempor eiusmod dolore labore incididunt laboris reprehenderit sit do exercitation officia. Amet pariatur dolor velit enim nisi in occaecat commodo id nulla.
+                    </p>
+                    <p>
+                        <span>Vanilla JavaScript</span>
+                    </p>
+                    <p>
+                        <a class="btn-link" href="/mastermind">
+                            <button class="button project-btn" type="button">Play<br>Mastermind</button>
+                        </a>
+                        <a class="btn-link" href="https://github.com/hansdrdoll/mastermind">
+                            <button class="button github-btn" type="button"> Mastermind on GitHub</button>
+                        </a> 
+                        <a class="btn-link" href="/mathtactoe">
+                            <button class="button project-btn" type="button">Play<br>Math Tac Toe</button>
+                        </a>
+                        <a href="https://github.com/hansdrdoll/math-tac-toe">
+                            <button class="button github-btn" type="button">Math Tac Toe on GitHub</button>
+                        </a>
+                    </p>
+                </div>
+                <div class="project-img-container">
+                    <img src="./assets/images/mastermind1.png" class="project-img"> 
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <a href="">
+                    <p>My name is Hans Kirkendoll. What's yours?</p>
+                </a>
+                <a href="https://www.linkedin.com/in/hanskirkendoll/">
+                    <p>LinkedIn</p>
+                </a>
+                <a href="https://github.com/hansdrdoll">
+                    <p>GitHub</p>
+                </a>
+                <a href="assets/hans-kirkendoll-resume.pdf">
+                    <p>Resumé</p>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <p>Home</p>
+                </a>
+                <a href="">
+                    <p>About me</p>
+                </a>
+                <a href="">
+                    <p>Projects</p>
+                </a>
+            </div>
+            <div>
                 <a href="https://just-todo-it.herokuapp.com/">
-                  <img src="assets/todoing.png" class="img-responsive card screenshot">
+                    <p>Todoing</p>
                 </a>
-                <figure class="figure-caption text-center">
-                  <span class="chip">React</span><span class="chip">Rails</span>
-                  <a href="https://github.com/hansdrdoll/todoing">
-                    <span class="chip">
-                      <img alt="Todoing on github" src="assets/ionicons_svg_logo-github-link.svg" class="github-icon">
-                    </span>
-                  </a>
-                </figure>
-              </div>
-              <div class="column col-8 reveal-2">
-              <h2>
-                <span class="emoji" role="img" aria-label="notepad">📝</span>
-                Currently I’m working on a text-editor based todo app for people who don’t like productivity apps.
-              </h2>
+                <a href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
+                    <p>Designer Resourcing</p>
+                </a>
+                <a href="/mathtactoe">
+                    <p>Math Tac Toe</p>
+                </a>
+                <a href="/mastermind">
+                    <p>Mastermind</p>
+                </a>
             </div>
-          </div>
-
-            <div class="top-margin clearfix reveal-3">
-              <div class="column col-3 float-left">
-                <a href="mastermind">
-                <img src="assets/mastermind.png" class="img-responsive card screenshot">
-              </a>
-                <figure class="figure-caption text-center">
-                  <span class="chip">JS ES6
-                  </span><a href="https://github.com/hansdrdoll/mastermind"><span class="chip">
-                      <img alt="Mastermind on github" src="assets/ionicons_svg_logo-github-link.svg" class="github-icon">
-                    </span>
-                  </a>
-                </figure>
-              </div>
-              <div class="column col-4 float-left reveal-3">
-                <a href="mathtactoe">
-                  <img src="assets/math-tac-toe.png" class="img-responsive card screenshot">
-                </a>
-                  <figure class="figure-caption text-center">
-                    <span class="chip">
-                      JavaScript
-                    </span><span class="chip">
-                      jQuery</span><a href="https://github.com/hansdrdoll/math-tac-toe"><span class="chip">
-                        <img alt="Math-tac-toe on github" src="assets/ionicons_svg_logo-github-link.svg" class="github-icon">
-                      </span>
-                    </a>
-                  </figure>
-              </div>
-              <div class="column col-12">
-                <h2 class="align-right">
-                  I’ve recreated two of my favorite strategy games
-                  <span role="img" aria-label="space invader">👾</span>
-                </h2>
-              </div>
-          </div>
-
-          <div class="top-margin clearfix reveal-4">
-          <div class="column col-4 float-right">
-            <a href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
-              <img src="assets/designer-resourcing.png" class="img-responsive card screenshot">
-            </a>
-              <figure class="figure-caption text-center">
-                <span class="chip">
-                  Node</span><span class="chip">
-                  Express</span><span class="chip">
-                  Postgres</span><a href="https://github.com/hansdrdoll/designer_resourcing"><span class="chip">
-                    <img alt="designer resourcing on github" src="assets/ionicons_svg_logo-github-link.svg" class="github-icon">
-                  </span>
-                </a>
-              </figure>
-          </div>
-          <div class="column col-8 reveal-4">
-          <h2>
-            <span role="img" aria-label="paperclips">🖇</span>
-            and an app for project managers to delegate hours to their teams.
-          </h2>
         </div>
-      </div>
-
-            <div class="top-margin column col-12 centered reveal-5">
-              <h3>(I'm big on things being useful.)</h3>
-              <!-- as well as readable code! -->
-            </div>
-
-            <div class="top-margin clearfix reveal-6">
-            <div class="column col-4 float-right">
-              <a href="assets/hans-kirkendoll-resume.pdf">
-                <img src="assets/resume.png" class="img-responsive card screenshot">
-              </a>
-            </div>
-            <div class="column col-8">
-            <h2 class="reveal-6">
-              <span role="img" aria-label="chef">👨‍🍳</span>
-              I managed cafés and a catering operation before I discovered a passion for programming.
-            </h2>
-            <h2 class="reveal-6">
-              <span role="img" aria-label="graduate">👨‍🎓</span>
-              I graduated from CUNY and General Assembly.
-            </h2>
-          </div>
-        </div>
-
-        <div class="clearfix">
-        <div class="column col-8 centered reveal-7">
-        <h2>
-          Bulletpoints about me!
-        </h2>
-        <ul class="bullets">
-          <li class="reveal-7">
-            <span role="img" aria-label="nerd face">🤓</span>
-            Fast learner
-          </li>
-          <li class="reveal-7">
-            <span role="img" aria-label="coffee cup">☕️</span>
-            Customer focused
-          </li>
-          <li class="reveal-7">
-            <span role="img" aria-label="rainbow">🌈</span>
-            Friendly and practical
-          </li>
-          <li class="reveal-7">
-            <span role="img" aria-label="tree">🌲</span>
-            Born in Portland Oregon
-          </li>
-          <li class="reveal-7">
-            <span role="img" aria-label="person with computer">👨‍💻</span>
-            Pretty Rad Developer
-          </li>
-        </ul>
-
-      </div>
     </div>
-            <section id="contact" class="contact reveal-8">
-              <div class="top-margin column col-12 centered">
-                <h3>You can get in touch with me on
-                  <a href="https://www.linkedin.com/in/hanskirkendoll/">LinkedIn</a>,
-                  or through the form below!</h3>
-              </div>
-
-              <div class="form-group">
-                <form action="https://formspree.io/hans.kirkendoll+formspree@gmail.com"
-      method="POST">
-                <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Name" autocomplete="name">
-
-                <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" name="_replyto" id="email" placeholder="Email" autocomplete="email">
-
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-input" id="message" name="message" placeholder="Hi, I would like to talk about shoes and ships and sealing wax." rows="3"></textarea>
-
-                <input type="hidden" name="_subject" value="Hello from the internet!" />
-                <button class="btn btn-primary input-group-btn" type="submit">Submit</button>
-              </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="top-margin navbar">
-    <section class="navbar-section navbar-center">
-      <a href="assets/hans-kirkendoll-resume.pdf" class="btn btn-link">
-        <div class="chip">
-          <img alt="Hans' Resume" src="assets/ionicons_svg_md-document.svg" class="header-logo avatar avatar-xs">
-          resume
-        </div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/hanskirkendoll/" class="btn btn-link">
-        <div class="chip">
-          <img alt="Hans on LinkedIn" src="assets/ionicons_svg_logo-linkedin.svg" class="header-logo avatar avatar-xs">
-          linkedin
-        </div>
-      </a>
-
-      <a href="https://github.com/hansdrdoll" class="btn btn-link">
-        <div class="chip">
-        <img alt="Hans on github" src="assets/ionicons_svg_logo-github.svg" class="header-logo avatar avatar-xs">
-        github
-      </div>
-      </a>
-
-      <a href="#contact" class="btn btn-link">
-        <div class="chip">
-          <img alt="Contact Hans" src="assets/ionicons_svg_md-mail.svg" class="header-logo avatar avatar-xs">
-          contact
-        </div>
-      </a>
-    </section>
-  </footer>
-
-  </body>
-  <script>
-    window.sr = ScrollReveal({ origin: 'top', duration: 1200 });
-    sr.reveal('.reveal-1', { origin: 'bottom' }, 50 );
-    sr.reveal('.reveal-2', { delay: 500, origin: 'left' }, 200 );
-    sr.reveal('.reveal-3', { delay: 1000, origin: 'right' }, 200 );
-    sr.reveal('.reveal-4', { origin: 'left' }, 100 );
-    sr.reveal('.reveal-5', { origin: 'top' }, 100 );
-    sr.reveal('.reveal-6', { origin: 'left' }, 100 );
-    sr.reveal('.reveal-7', { origin: 'right' }, 120 );
-    sr.reveal('.reveal-8', 100 );
-  </script>
+</body>
 </html>
