@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hans Kirkendoll</title>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,700,800|Roboto:300" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,700,800|Roboto:300" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="fonts.css">
+    <!-- <link rel="stylesheet" href="fonts.css"> -->
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="script.js"></script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112820780-1"></script>
 </head>
 <body>
     <header class="header">
-        <span class="first-name">Hans&nbsp;</span>
-        <span class="text-gray">Kirkendoll</span>
+        <div class="header-right"></div>
+        <div class="header-center">
+            <span class="first-name">Hans&nbsp;</span>
+            <span class="last-name">Kirkendoll</span>
+        </div>
+        <div class="header-left">
+            <a href="https://www.linkedin.com/in/hanskirkendoll/" class="tooltip">
+                <img src="assets/ionicons_svg_logo-linkedin.svg" class="header-svg">
+                <span class="tooltip-text">LinkedIn</span>
+            </a>
+            <a href="https://github.com/hansdrdoll" class="tooltip">
+                <img src="assets/ionicons_svg_logo-github.svg" class="header-svg">
+                <span class="tooltip-text">GitHub</span>
+            </a>
+            <a href="https://engineerhans.com/assets/hans-kirkendoll-resume.pdf" class="tooltip">
+                <img src="assets/ionicons_svg_md-document.svg" class="header-svg">
+                <span class="tooltip-text">Resumé</span>
+            </a>
+        </div>
     </header>
     <div class="container">
         <div class="section hello">
@@ -95,7 +112,7 @@
                         The order in which you keep your list is important, so the use of the tools never mutates your list, and helpful line numbers are provided throughout.
                     </p>    
                     <p>
-                        <span>React</span><span>Rails</span>
+                        <span>React.Js</span><span>Rails</span>
                     </p>
                     <p>
                         <a class="btn-link" href="https://just-todo-it.herokuapp.com/">
@@ -107,7 +124,9 @@
                     </p>
                 </div>
                 <div class="project-img-container">
-                    <img src="./assets/images/todoing1.png" class="project-img"> 
+                    <a class="btn-link" href="https://just-todo-it.herokuapp.com/">
+                        <img src="./assets/images/todoing1.png" class="project-img">
+                    </a>
                 </div>
             </div>
             <div class="project">
@@ -116,7 +135,7 @@
                         An app for project managers to resource their teams
                     </p>
                     <p>
-                        Designed specifically for mangers who need to delegate hours to their teams on a weekly basis, Designer Resourcing allows you to build a schedule-like report by assigning hours to the people on your teams within the context of a specific client. View all assignments at once to identify and correct conflicts, or rebalance labor across your team, and say goodbye to emailing out files like <i><small>schedule-new-revised-updated-1-reallynew.xls</small></i>.
+                        Designed specifically for mangers who need to delegate hours to their teams on a weekly basis, Designer Resourcing allows you to build a schedule-like report by assigning hours to the people on your teams within the context of a specific client. View all assignments at once to identify and correct conflicts, or rebalance labor across your team, and say goodbye to emailing out files like <i><small>schedule-new-revised-updated-1.xls</small></i>.
                     </p>
                     <p>
                         <span>Node</span> <span>Express</span> <span>PostgreSQL</span>
@@ -131,7 +150,9 @@
                     </p>
                 </div>
                 <div class="project-img-container">
-                    <img src="./assets/images/resourcing1.png" class="project-img"> 
+                    <a class="btn-link" href="https://still-thicket-36728.herokuapp.com/report/2018-03-26">
+                        <img src="./assets/images/resourcing1.png" class="project-img">
+                    </a>
                 </div>
             </div>
             <div class="project">
@@ -146,7 +167,7 @@
                         Math-tac-toe is a friendly update to the well-known game that adds an interesting layer of complexity! Choosing to play with either even or odd numbers, can you beat your opponent to making a set that equals 15?
                     </p>
                     <p>
-                        <span>Vanilla JavaScript</span>
+                        <span>JavaScript ES6</span> <span>jQuery</span>
                     </p>
                     <p>
                         <a class="btn-link" href="/mastermind">
@@ -164,7 +185,9 @@
                     </p>
                 </div>
                 <div class="project-img-container">
-                    <img src="./assets/images/mastermind1.png" class="project-img"> 
+                    <a class="btn-link" href="/mastermind">
+                        <img src="./assets/images/mastermind1.png" class="project-img"> 
+                    </a>
                 </div>
             </div>
         </div>
@@ -210,5 +233,11 @@
             </div>
         </div>
     </div>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112820780-1');
+    </script>
 </body>
 </html>
