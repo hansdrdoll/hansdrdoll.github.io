@@ -3,6 +3,11 @@ body {
     background-color: #D8DEE9;
 }
 
+/* maybe this is an expensive way to animate media queries */
+div {
+    transition: all 1s ease-out;
+}
+
 a {
     text-decoration: none;
 }
@@ -14,11 +19,12 @@ a {
     /* border: 1px solid red; */
     text-align: center;
     margin: 0;
-    padding: 20px 0;
+    padding: 1em 0;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 700;
     font-size: 1.5em;
     background-color: rgb(245, 247, 250);
+    
 }
 
 .header-svg {
@@ -60,11 +66,7 @@ a {
     opacity: 1;
 }
 
-.header-right {
-    width: 25%;
-}
-
-.header-center {
+.header-right, .header-center {
     width: 25%;
 }
 
@@ -127,6 +129,11 @@ a {
 .sub-heading {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 1.3em;
+}
+
+.svg {
+    width: 7em;
+    height: 7em;
 }
 
 .button {
@@ -223,7 +230,7 @@ a {
 }
 
 .project-img-container {
-    width: 350px;
+    max-width: 450px;
     margin-left: 2em;
 }
 
@@ -278,4 +285,119 @@ a {
 .footer a {
     text-decoration: none;
     color: inherit;
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: .8em;
+    }
+    .header-left {
+        display: none;
+    }
+    .header-right {
+        text-align: right;
+    }
+
+    .header-center, .header-right {
+        width: 40%;
+        /* border: 1px solid palegreen; */
+    }
+
+    .section {
+        padding: 1em 10vw;
+    }
+
+    .hello {
+        padding: 2em 10vw;
+    }
+
+    .heading-2 {
+        font-size: 2em;
+    }
+    .heading-4 {
+        font-size: 1.2em;
+    }
+    .heading-5 {
+        font-size: 1.2em;
+    }
+
+    .flattering-picture {
+        height: 40vh;
+    }
+
+    .svg {
+        width: 4em;
+        height: 4em;
+    }
+    
+    .section-right {
+        margin-left: 2em;
+    }
+
+    .project {
+        padding: 0;
+    }
+    
+    .sub-heading {
+        margin: 0;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-flow: column wrap;
+        padding: .5em;
+    }
+    .header-right {
+        text-align: center;
+    }
+    
+    .header-center, .header-right {
+        align-self: center;
+        width: 80%;
+        padding: .4em 0;
+    }
+    
+    .flattering-picture {
+        height: 30vh;
+    }
+    
+    .section-right {
+        margin-left: 0;
+    }
+    
+    .project {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+        padding: 1em 0;
+        /* border: 1px solid sandybrown; */
+    }
+    
+    .project-img-container {
+        max-width: 200px;
+    }
+
+    .footer {
+        display: flex;
+        /* flex-flow: column wrap; */
+        justify-content: space-between;
+        align-items: flex-start;
+        /* min-height: 15vh; */
+        background-color: rgb(199, 203, 211);
+        font-size: .8em;
+        color: #65737e;
+    }
+    
+    .footer div {
+        width: 50vw;
+        padding: 1em 2em;
+        /* border: 1px solid red; */
+    }
+
+    .footer p {
+        margin: 1.4em 0;
+    }
 }
