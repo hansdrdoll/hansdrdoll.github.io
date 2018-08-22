@@ -3,11 +3,6 @@ body {
     background-color: #D8DEE9;
 }
 
-/* maybe this is an expensive way to animate media queries */
-div {
-    transition: all 1s ease-out;
-}
-
 a {
     text-decoration: none;
 }
@@ -249,11 +244,12 @@ a {
 
 .project-btn {
     width: 12em;
+    margin-bottom: .5em;
 }
 
 .github-btn {
     width: 12em;
-    background: #65737e;
+    background: #324350;
 }
 
 .github-btn:hover {
@@ -400,4 +396,8 @@ a {
     .footer p {
         margin: 1.4em 0;
     }
+}
+
+div, p, img {
+    transition: all 1s ease-out;
 }
